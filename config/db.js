@@ -5,4 +5,5 @@ const db = new Sequelize("db_hr_express", "root", "", {
   dialect: "mysql",
   port: 3307,
 });
+
 export default db;
