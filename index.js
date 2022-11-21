@@ -2,6 +2,8 @@ import express from "express";
 import router from "./route/index.js";
 import morgan from "morgan";
 import hibernate from "./config/index.js";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 hibernate();
