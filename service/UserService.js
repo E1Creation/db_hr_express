@@ -41,6 +41,15 @@ class UserService extends GenericService {
     });
     return user;
   }
+
+  async getByRefreshToken(refToken) {
+    const user = await User.findOne({
+      where: {
+        refreshToken: refToken,
+      },
+    });
+    return user;
+  }
 }
 
 export default UserService;

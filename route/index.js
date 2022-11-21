@@ -8,8 +8,15 @@ import DepartmentRoute from "./DepartmentRoute.js";
 import RoleRoute from "./RoleRoute.js";
 import JobRoute from "./JobRoute.js";
 import HistoryRoute from "./HistoryRoute.js";
+import RouterWithoutAuth from "./RouteWithoutAuth.js";
+import verifyToken from "../middleware/VerifyToken.js";
 
 const router = Router();
+// route yang tidak butuh authorization
+router.use("/", RouterWithoutAuth);
+
+router.use(verifyToken);
+//route butuh authorization
 router.use("/user", UserRoute);
 router.use("/employee", EmployeeRoute);
 router.use("/region", RegionRoute);
