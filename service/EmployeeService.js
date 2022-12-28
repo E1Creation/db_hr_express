@@ -6,6 +6,8 @@ class EmployeeService extends GenericService {
   constructor() {
     console.log("added new class");
     super(Employee);
+    this.get = this.get.bind(this);
+    this.register = this.register.bind(this);
   }
   async get() {
     const employees = await Employee.findAll({
@@ -15,7 +17,7 @@ class EmployeeService extends GenericService {
     });
     return employees;
   }
-  async create(data) {
+  async register(data) {
     const { first_name, last_name, email, phoneNumber, username, password } =
       data;
     const salt = await bcrypt.genSalt();

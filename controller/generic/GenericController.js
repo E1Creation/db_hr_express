@@ -24,6 +24,7 @@ class GenericController {
   async getById(req, res) {
     try {
       const data = await this.service.getById(req.params.id);
+
       res.status(200).json({
         message: "success",
         data: data,
@@ -37,6 +38,8 @@ class GenericController {
   }
   async create(req, res) {
     try {
+      // console.log("employee : " + req.body.first_name);
+
       const data = await this.service.create(req.body);
       res.status(201).json({
         message: "success",

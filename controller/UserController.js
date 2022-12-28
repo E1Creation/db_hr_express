@@ -68,7 +68,7 @@ class UserController extends GenericController {
           message: "refresh token does'nt exist or already expired",
         });
       }
-      const user = this.service.getByRefreshToken(refToken);
+      const user = await this.service.getByRefreshToken(refToken);
       if (!user) {
         return res.status(403).json({
           status: "fail",
@@ -83,6 +83,8 @@ class UserController extends GenericController {
           });
         }
         const { id, username } = user;
+        console.log("user = " + user.id);
+        console.log(id, username);
         const accessToken = jwt.sign(
           {
             id,

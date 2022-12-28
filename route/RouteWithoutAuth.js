@@ -6,7 +6,7 @@ const router = Router();
 const user = new UserController();
 const employee = new EmployeeController();
 router.post("/login", user.login);
-router.post("/register", employee.create);
+router.post("/register", employee.register);
 router.get("/token", user.refreshToken);
 router.get("/logout", user.logout);
 
